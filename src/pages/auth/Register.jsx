@@ -5,7 +5,7 @@ import Card from '../../components/card/Card'
 import { Link, useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth"
+import { createUserWithEmailAndPassword } from "firebase/auth"
 import {auth} from "../../firebase/config"
 import Loader from '../../components/loader/Loader'
 

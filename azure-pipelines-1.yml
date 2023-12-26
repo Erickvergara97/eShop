@@ -1,0 +1,28 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+jobs:
+- job: BuildAndDeploy
+  displayName: 'Build and Deploy'
+  steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '10.x'
+    displayName: 'Install Node.js'
+
+  - script: |
+      npm install
+      npm run build
+    displayName: 'npm install and build'
+
+  # Add deployment steps here, for example, deploying to Azure App Service
+  # - task: AzureRmWebAppDeployment@4
+  #   inputs:
+  #     ConnectionType: 'AzureRM'
+  #     azureSubscription: '<AzureServiceConnection>'
+  #     appType: 'webAppLinux'
+  #     appName: '<YourWebAppName>'
+  #     packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
